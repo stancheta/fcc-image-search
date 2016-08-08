@@ -1,0 +1,21 @@
+{
+  "name": "fcc-image-search",
+  "version": "1.0.0",
+  "description": "Backend project for FreeCodeCamp",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha test/*.js"
+  },
+  "keywords": [
+    "FreeCodeCamp"
+  ],
+  "author": "Steven T Ancheta",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.0.1"
+  }
+}
