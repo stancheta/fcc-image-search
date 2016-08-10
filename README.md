@@ -13,6 +13,38 @@ npm start
 
 ```
 
+## How to Use API
+Example Usage:
+```
+https://stancheta-image-search.herokuapp.com/imagesearch/ducks
+```
+Example Usage with offset:
+```
+https://stancheta-image-search.herokuapp.com/imagesearch/pizza?offset=10
+```
+Example Return (only the first three items of 10):
+```
+[
+{
+url: "http://s0.yellowpages.com.au/61c2379e-fc29-4025-85db-b19e12285d4c/helloworld-mildura-image.jpg",
+snippet: "Helloworld Mildura - Travel ...",
+thumbnail: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRQmOb-47RtkTuKBfFnqlbwiJCNsDZJRRMFpEvGx80KQ1RSzdDtvzYLcxY",
+context: "http://www.yellowpages.com.au/vic/mildura/helloworld-mildura-13066162-listing.html"
+},
+{
+url: "http://browningit.com/wp-content/uploads/2015/09/helloworld.gif",
+snippet: "Hello world!",
+thumbnail: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsRhZHClD1vdQlujIIZmeOCsnmjCz0OwpwzpH7zjBto_bxkbJ8e0fJem4",
+context: "http://browningit.com/uncategorized/hello-world/"
+},
+{
+url: "https://www.helloworld.com/img/global/social-thumbnail.jpg",
+snippet: "... Marketing | HelloWorld",
+thumbnail: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTN1ngZhMgA-c19ymfOwJc8ntVbdD-rTmVvw_aBSb04z8ezxsEBMAdMCg",
+context: "http://www.helloworld.com/"
+},
+...
+```
 ## Note
 This project requires the use of a Google API with a custom google search engine and a deployed mLab database.
 
