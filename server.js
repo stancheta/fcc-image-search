@@ -1,11 +1,14 @@
 var express = require('express');
 var app = express();
-
+var search = require('./app/search');
 var port = process.env.PORT || 8080;
+var handleSearch = search.handleSearch;
 
 app.get('/imagesearch/:search', function(req, res) {
    console.log('search ' + req.params.search + ' with offset=' + req.query.offset);
-   res.send(req.params.search);
+   handleSearch(req.params.search, req.query.offset, function(result) {
+      res.send(JSON.stringify(result));
+   })
 });
 
 app.listen(port, function() {

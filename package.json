@@ -4,6 +4,7 @@
   "description": "Backend project for FreeCodeCamp",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "mocha test/*.js"
   },
   "keywords": [
@@ -12,10 +13,11 @@
   "author": "Steven T Ancheta",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "request": "^2.74.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^3.0.1"
+    "mocha": "^3.0.2"
   }
 }
