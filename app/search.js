@@ -1,9 +1,48 @@
 var gse = process.env.GSE;
 var gKey = process.env.GKEY;
-
+var mongoURL = process.env.FCC_IMGHIST_DB;
 var request = require('request');
+var mongodb = require('mongodb');
+var mongoClient = mongodb.MongoClient;
 
 var baseRequestURL = 'https://www.googleapis.com/customsearch/v1?';
+// history
+
+function insertHistory(searchTerm) {
+  console.log(mongoURL);
+  mongoClient.connect(mongoURL, function (err, db) {
+    if (err) {
+      console.log('Unable to connect to the mongoDB server. Error:', err);
+    } else {
+      console.log('Connection established');
+      db.collection('history').insert( {term: searchTerm, when: new Date()} );
+      db.close();
+    }
+  });
+}
+
+function handleHistory(callback) {
+  console.log(mongoURL);
+  mongoClient.connect(mongoURL, function (err, db) {
+    if (err) {
+      console.log('Unable to connect to the mongoDB server. Error:', err);
+    } else {
+      console.log('Connection established');
+      db.collection('history').find({},{ _id:0, term:1, when:1 }).sort({when:-1}).limit(10).toArray(function(err, cb) {
+        if (err) {
+          callback('Error: ' + err);
+        }
+        callback(cb);
+        db.close();
+      });
+
+
+      // return history;
+    }
+  });
+}
+
+// search api
 
 function formatObject(data) {
   return {
@@ -47,10 +86,12 @@ function handleSearch(query, o, callback) {
       response.error = 'There was an error in the system.';
       callback(response);
     }
+      insertHistory(query);
       callback(data);
     })
 };
 
 module.exports = {
+  handleHistory: handleHistory,
   handleSearch: handleSearch
 };
