@@ -1,4 +1,4 @@
-# FCC-IMAGE-SEARCH-ABSTRACTION-lAYER
+# FCC-IMAGE-SEARCH-ABSTRACTION-LAYER
 
 ## Install
 In order to use this project, you must install Node.js and Express.js You can acquire
